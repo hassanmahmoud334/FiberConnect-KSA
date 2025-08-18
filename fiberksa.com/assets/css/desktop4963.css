@@ -1,0 +1,46 @@
+/*desktop devices */
+@media (min-width: 768px) {
+  :root {
+    --f7-picker-popover-width: 210px !important;
+  }
+  #app {
+    max-width: 1470px !important;
+    margin: auto;
+  }
+
+  .hide-on-desktop {
+    display: none !important;
+  }
+  .card-header.width {
+    width: 100%;
+  }
+
+  .titleEllipsis {
+    max-width: 168px;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .loginForm {
+    max-width: 40%;
+  }
+
+  .topLogo {
+    margin-left: 0 !important;
+    margin-right: auto;
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* or any desired width */
+    height: 100%; /* or any desired height */
+    background: linear-gradient(90deg, #370f8100 24%, #1a0b49 62%);
+    opacity: 0.9; /* Adjust colors and opacity as needed */
+  }
+
+  .tabls {
+    flex-wrap: inherit;
+  }
+}

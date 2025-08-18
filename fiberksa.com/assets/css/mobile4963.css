@@ -1,0 +1,55 @@
+/* mobile devices */
+@media (max-width: 767px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+  .titleEllipsis {
+    max-width: 270px;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .searchResult {
+    top: 65px;
+  }
+
+  .tab-link {
+    min-width: 85px;
+  }
+  .loginForm {
+    max-width: 90%;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* or any desired width */
+    height: 100%; /* or any desired height */
+    background: linear-gradient(180deg, #370f8100 24%, #1a0b49 62%);
+    opacity: 0.9; /* Adjust colors and opacity as needed */
+  }
+
+  #header {
+    height: 0;
+    padding: 0;
+  }
+  #header.header-scrolled {
+    height: 70px;
+    padding: 15px 0;
+  }
+
+  .topLogo {
+    margin-right: auto;
+  }
+
+  .tabls {
+    flex-wrap: wrap;
+  }
+  .pktbls {
+    gap: 30px;
+    flex-direction: column-reverse;
+  }
+}
