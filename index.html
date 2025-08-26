@@ -54,7 +54,53 @@
     <link href="/fiberksa.com/assets/css/style4e44.css?ver=1.3" rel="stylesheet">
     <link href="/fiberksa.com/assets/css/desktop4963.css?ver=1.1" rel="stylesheet">
     <link href="/fiberksa.com/assets/css/mobile4963.css?ver=1.1" rel="stylesheet">
+<style>
+    .dropdown {
+  position: relative;
+}
 
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* directly below parent link */
+  left: 0;
+  background: white;
+  min-width: 150px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+
+  display: none; /* hidden by default */
+  z-index: 1000;
+}
+
+.dropdown-menu li {
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.dropdown-menu li:last-child {
+  border-bottom: none;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+  background: #f4f4f4;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover > .dropdown-menu {
+  display: block;
+}
+</style>
 </head>
 
 <body>
@@ -81,7 +127,14 @@
 
                 <ul>
                     <li><a class="nav-link scrollto active" href="index-2.html#hero">الرئيسية</a></li>
-                    <li><a class="nav-link scrollto" href="index-2.html#packs">الباقات</a></li>
+                    <li class="dropdown">
+                        <a class="nav-link scrollto" href="index-2.html#packs" style="flex-wrap: nowrap;">الباقات</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#stc">STC</a></li>
+                            <li><a href="#salam">Salam</a></li>
+                            <li><a href="#mobily">Mobily</a></li>
+                        </ul>
+                    </li>                    
                     <li><a class="nav-link scrollto" href="index-2.html#prices">العروض</a></li>
                     <li><a class="nav-link scrollto" href="index-2.html#footer">تواصل معنا</a></li>
                     <li><a class="nav-link scrollto" href="index-2.html#blog">مدونة</a></li>
@@ -253,7 +306,7 @@
 
 <div class="container">
     <div class="row justify-content-center g-4">
-        <div class="col-12 col-md-6 col-lg-4 mb-2">
+        <div class="col-12 col-md-6 col-lg-4 mb-2" id="stc">
             <div class="STCpricing-table STCpopular" style="--primary-color: #8611d7;">
                 <div class="STCpopular-badge">الاكثر مبيعا</div>
                 <div class="STCtable-header">
@@ -531,7 +584,7 @@
                     اشترك الان </a>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 mb-2">
+        <div class="col-12 col-md-6 col-lg-4 mb-2" id="salam">
             <div class="STCpricing-table" style="--primary-color: #00B140;">
                 <div class="STCtable-header">
                     <img src="https://salam.sa/marketing-mangment/uploads/icon_salam_300_ar_034f103d8f.svg" alt="سلام فايبر 300" class="STCicon" />
@@ -642,7 +695,7 @@
                 <p style="font-size:12px; color:#80909A; margin-top:4px;">شاملة ضريبة القيمة المضافة</p>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 mb-2">
+        <div class="col-12 col-md-6 col-lg-4 mb-2" id="mobily">
             <div class="STCpricing-table" style="--primary-color: #0099ff;">
                 <div class="STCtable-header">
                     <img src="fiberksa.com/assets/img/mobily.png" alt="موبايلي فايبر 1 جيجابت" class="STCicon" />
@@ -1381,9 +1434,6 @@
 <script src="/fiberksa.com/assets/js/main4963.js?ver=1.1"></script>
 
 </body>
-
-
-<!-- Mirrored from fiberksa.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Aug 2025 18:36:20 GMT -->
 </html>
 
 <script>
@@ -1402,5 +1452,24 @@
             preloaderClass: "swiper-lazy-preloader",
         },
         plugins: [SwiperPluginAutoPlay, SwiperPluginLazyload],
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+    const navLinks = document.querySelectorAll('#navbar .dropdown-menu a');
+    const navbar = document.getElementById('navbar');
+    const navToggle = document.querySelector('.mobile-nav-toggle');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+        if (navbar.classList.contains('navbar-mobile')) {
+            // remove mobile class to close the nav
+            navbar.classList.remove('navbar-mobile');
+            // also toggle icon back if needed
+            if (navToggle) {
+            navToggle.classList.toggle('bi-list');
+            navToggle.classList.toggle('bi-x');
+            }
+        }
+        });
+    });
     });
 </script>
