@@ -135,7 +135,7 @@
 
             <nav id="navbar" class="navbar">
 
-                <span class="nav-close" aria-label="إغلاق القائمة"><i class="fa-solid fa-xmark"></i></span>
+                <button type="button" class="nav-close" aria-label="إغلاق القائمة"><i class="fa-solid fa-xmark"></i><span>خروج</span></button>
 
                 <ul>
                     <li><a class="nav-link scrollto active" href="#hero">الرئيسية</a></li>
@@ -150,7 +150,10 @@
                     </li>                    
                     <li><a class="nav-link scrollto" href="#stc">العروض</a></li>
                     <li><a class="nav-link scrollto" href="privacy.html">الخصوصية</a></li>
-
+                    <li class="nav-contact-list">
+                        <a href="tel:966557362367"><i class="fa-solid fa-phone"></i>اتصال</a>
+                        <a href="https://wa.me/966557362367" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i>واتساب</a>
+                    </li>
                 </ul>
 
             </nav><!-- .navbar -->
@@ -943,19 +946,34 @@
     const navLinks = document.querySelectorAll('#navbar .dropdown-menu a');
     const navbar = document.getElementById('navbar');
     const navToggle = document.querySelector('.mobile-nav-toggle');
+    const menuToggle = document.querySelector('.menuToggle');
+    const closeBtn = document.querySelector('.nav-close');
+
+    const closeMobileNav = () => {
+        if (!navbar || !navbar.classList.contains('navbar-mobile')) return;
+        navbar.classList.remove('navbar-mobile');
+        if (navToggle) {
+            navToggle.classList.remove('bi-x');
+            navToggle.classList.add('bi-list');
+        }
+        if (menuToggle) {
+            menuToggle.classList.remove('bi-x');
+            menuToggle.classList.add('bi-list');
+        }
+    };
 
     navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-        if (navbar.classList.contains('navbar-mobile')) {
-            // remove mobile class to close the nav
-            navbar.classList.remove('navbar-mobile');
-            // also toggle icon back if needed
-            if (navToggle) {
-            navToggle.classList.toggle('bi-list');
-            navToggle.classList.toggle('bi-x');
-            }
-        }
-        });
+        link.addEventListener('click', closeMobileNav);
     });
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeMobileNav);
+        closeBtn.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                closeMobileNav();
+            }
+        });
+    }
     });
 </script>
