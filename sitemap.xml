@@ -4,12 +4,16 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
   <url>
-    <loc>https://fiberconnect.site/</loc>
-    <lastmod>2025-09-03</lastmod>
+    <loc>https://fiber-connect-sa.xyz/</loc>
+    <lastmod>2026-08-14</lastmod>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://fiber-connect-sa.xyz/privacy.html</loc>
+    <lastmod>2026-08-14</lastmod>
+    <priority>0.5</priority>
   </url>
 
 </urlset>
